@@ -9,6 +9,9 @@ type UserBusinessScope = "user:business:read"
     | "user:business:block"
     | "user:business:delete"
     | "user:business:.*" // all business roles
+type ProjectScope = "user:project:read"
+    | "user:project:delete"
+    | "user:project:.*" // all project roles    
 
 type TicketScope = "ticket:details:read"
     | "ticket:status:approve"
@@ -62,7 +65,7 @@ type SystemLogScope = "system:log:read";
 export type UserScope = UserProfileScope | UserBusinessScope | "user:.*:.*";
 
 export type SystemScope = SystemMethodScope | SystemMethodAccountScope | SystemAdminScope | SystemPropertyScope | SystemEventScope | SystemLogScope | "system:.*:.*";
-export type ScopedRole = UserScope | TicketScope | WalletScope | InvestmentNetworkScope | AdminRoleScope | SystemScope | ".*:.*:.*";
+export type ScopedRole = UserScope | ProjectScope | TicketScope | WalletScope | InvestmentNetworkScope | AdminRoleScope | SystemScope | ".*:.*:.*";
 
 export interface UserRole {
     id: string;
@@ -80,6 +83,10 @@ export const ScopedRoleList: ScopedRole[] = [
     "user:business:allow",
     "user:business:block",
     "user:business:delete",
+    "user:business:.*",
+
+    "user:project:read",
+    "user:project:delete",
     "user:business:.*",
 
     "ticket:details:read",
