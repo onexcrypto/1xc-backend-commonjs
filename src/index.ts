@@ -272,7 +272,7 @@ export interface AccessToken extends Insertable, Patchable{
     owner: string; /// the user id
     label?: string;
     rights: string[];
-    project?: string; /// project id
+    projectId?: string; 
 }
 
 export interface WalletTransfer extends Indexable, Insertable {
