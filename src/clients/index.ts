@@ -6,6 +6,7 @@ import { ConversionServiceClient } from "./ConversionServiceClient";
 import { IssuerClient } from "./IssuerClient";
 import { MethodAccountServiceClient } from "./MethodAccountServiceClient";
 import MethodServiceClient from "./MethodServiceClient";
+import ProjectServiceClient from "./ProjectServiceClient";
 import { PropertyServiceClient } from "./PropertyServiceClient";
 import { UserServiceClient } from "./UserServiceClient";
 import { WalletServiceClient } from "./WalletServiceClient";
@@ -21,6 +22,7 @@ export function configureProxyEndpoint(url: string){
     BusinessServiceClient.url = url+"/business";
     ConversionServiceClient.url = url+"/rates";
     IssuerClient.url = url+"/issuer";
+    ProjectServiceClient.url = url+"/projects"
     PropertyServiceClient.url = url+'/system/properties';
     MethodServiceClient.url = url+'/system/methods';
     MethodAccountServiceClient.url = url+'/system/accounts';
@@ -38,6 +40,7 @@ export function configureClientMetadata(meta: ServiceMetadata){
     BusinessServiceClient.clientMetadata = meta;
     ConversionServiceClient.clientMetadata = meta;
     IssuerClient.clientMetadata = meta;
+    ProjectServiceClient.clientMetadata = meta;
     PropertyServiceClient.clientMetadata = meta;
     MethodServiceClient.clientMetadata = meta;
     MethodAccountServiceClient.clientMetadata = meta;
@@ -55,6 +58,7 @@ export * from "./AssetServiceClient";
 export * from "./BusinessServiceClient";
 export * from "./ConversionServiceClient";
 export * from "./IssuerClient";
+export * from "./ProjectServiceClient";
 export * from "./PropertyServiceClient";
 export * from "./MethodServiceClient";
 export * from "./MethodAccountServiceClient";
