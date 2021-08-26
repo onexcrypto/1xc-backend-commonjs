@@ -13,7 +13,7 @@ export class ProjectServiceClient extends JsonServiceClient<Project>{
 
     async readOneProject(id: string): Promise<Project|undefined>{
         return axios.get(
-            `${this.url}/projects?id=${id}`,
+            `${this.url}/?id=${id}`,
             {
                 withCredentials: true,
                 headers: this.defaultHeaders
