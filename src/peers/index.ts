@@ -26,16 +26,16 @@ export interface UserSESData extends TokenData{
     lastName: string;
 }
 
-export interface UserUATData extends TokenData{
+export type AccessMode = "read" | "write" | "read+write";
+export interface UserUATData extends TokenData {
     type: "user";
     method: "uat";
-    mode?: "read" | "write" | "read+write";
+    mode?: AccessMode;
     userId: string;
     firstName: string;
     lastName: string;
     token: AccessToken;
 }
-
 export interface AdminTokenData extends TokenData{
     type: "admin";
     method: "ses";
