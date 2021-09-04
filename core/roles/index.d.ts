@@ -1,5 +1,6 @@
 declare type UserProfileScope = "user:profile:read" | "user:profile:activate" | "user:profile:block" | "user:profile:.*";
 declare type UserBusinessScope = "user:business:read" | "user:business:allow" | "user:business:block" | "user:business:delete" | "user:business:.*";
+declare type ProjectScope = "user:project:read" | "user:project:delete" | "user:project:.*";
 declare type TicketScope = "ticket:details:read" | "ticket:status:approve" | "ticket:status:abort" | "ticket:transaction:read" | "ticket:status:.*" | "ticket:transaction:.*" | "ticket:.*:.*";
 declare type WalletScope = "wallet:details:read" | "wallet:balance:credit" | "wallet:balance:debit" | "wallet:transfer:read" | "wallet:history:read" | "wallet:balance:.*" | "wallet:.*:.*";
 declare type InvestmentNetworkScope = "investment:network:read" | "investment:network:.*";
@@ -12,7 +13,7 @@ declare type SystemEventScope = "system:event:read";
 declare type SystemLogScope = "system:log:read";
 export declare type UserScope = UserProfileScope | UserBusinessScope | "user:.*:.*";
 export declare type SystemScope = SystemMethodScope | SystemMethodAccountScope | SystemAdminScope | SystemPropertyScope | SystemEventScope | SystemLogScope | "system:.*:.*";
-export declare type ScopedRole = UserScope | TicketScope | WalletScope | InvestmentNetworkScope | AdminRoleScope | SystemScope | ".*:.*:.*";
+export declare type ScopedRole = UserScope | ProjectScope | TicketScope | WalletScope | InvestmentNetworkScope | AdminRoleScope | SystemScope | ".*:.*:.*";
 export interface UserRole {
     id: string;
     roles: ScopedRole[];

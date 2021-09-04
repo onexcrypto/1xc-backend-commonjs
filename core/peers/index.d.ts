@@ -20,10 +20,11 @@ export interface UserSESData extends TokenData {
     firstName: string;
     lastName: string;
 }
+export declare type AccessMode = "read" | "write" | "read+write";
 export interface UserUATData extends TokenData {
     type: "user";
     method: "uat";
-    mode?: "read" | "write" | "read+write";
+    mode?: AccessMode;
     userId: string;
     firstName: string;
     lastName: string;

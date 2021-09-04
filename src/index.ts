@@ -144,6 +144,36 @@ export interface BusinessProfile extends Indexable, Insertable, Patchable{
     corrections?: IBusinessCorrection[]; 
 }
 
+export interface Project extends Indexable, Insertable, Patchable {
+    userId: string;
+    name: string;
+}
+
+export type PaymentStatus = "pending" | "confirmed" | "cancelled" | "paid";
+
+export type BusinessPIStatus = PaymentStatus | "failure";
+export interface BusinessPaymentIntent extends Indexable, Insertable {
+    amount: string;
+    responseURL: string;
+    projectId: string;
+    status: BusinessPIStatus;
+    emissionDate: number;
+    paymentURL: string;
+    reason?: string;
+    confirmedAt?: number;
+    paidAt?: number;
+    cancelledAt?: number;
+    userId?: string;
+    failureText?: string;
+}
+export interface BusinessPayment extends Indexable, Insertable {
+    intent: string;
+    walletSource: string;
+    walletDest: string;
+    transactionId: string;
+    userId: string;
+}
+
 export interface IBusinessCorrection {
     title: String;
     content: String;
@@ -203,7 +233,7 @@ export interface Method extends Indexable, Insertable, Patchable{
     details: MethodDetails;
 }
 
-export type TicketStatus =  "pending" | "confirmed" | "cancelled" | "paid";
+export type TicketStatus =  PaymentStatus;
 export interface CardRechargeData {
     holder: string;
     identifier: string;
@@ -267,6 +297,7 @@ export interface AccessToken extends Insertable, Patchable{
     owner: string; /// the user id
     label?: string;
     rights: string[];
+    projectId?: string; 
 }
 
 export interface WalletTransfer extends Indexable, Insertable {
