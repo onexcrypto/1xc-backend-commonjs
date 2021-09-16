@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseAuthorizationHeader = exports.extractApiKey = exports.extractBearerToken = exports.capitalize = exports.errors = exports.success = void 0;
+exports.isAmountValue = exports.parseAuthorizationHeader = exports.extractApiKey = exports.extractBearerToken = exports.capitalize = exports.errors = exports.success = void 0;
 const BEARER_EXP = RegExp("^bearer\\s+(?<token>.*)", "i");
 const UAT_EXP = RegExp("^uat\\s+(?<token>.*)", "i");
 function success(data = undefined) {
@@ -54,3 +54,7 @@ function parseAuthorizationHeader(str) {
     return undefined;
 }
 exports.parseAuthorizationHeader = parseAuthorizationHeader;
+function isAmountValue(str) {
+    return !isNaN(+str) && +str > 0;
+}
+exports.isAmountValue = isAmountValue;

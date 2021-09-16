@@ -7,3 +7,4 @@ export declare function parseAuthorizationHeader(str: string): {
     format: string;
     token: string;
 } | undefined;
+export declare function isAmountValue(str: string): boolean;

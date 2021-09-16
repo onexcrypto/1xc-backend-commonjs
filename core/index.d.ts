@@ -126,8 +126,7 @@ export interface Project extends Indexable, Insertable, Patchable {
 }
 export declare type PaymentStatus = "pending" | "confirmed" | "cancelled" | "paid";
 export declare type BusinessPIStatus = PaymentStatus | "failure";
-export interface BusinessPaymentIntent extends Indexable, Insertable {
-    amount: string;
+export interface BusinessPaymentIntent extends Money, Indexable, Insertable {
     responseURL: string;
     projectId: string;
     status: BusinessPIStatus;

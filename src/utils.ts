@@ -52,3 +52,7 @@ export function parseAuthorizationHeader(str: string) {
     }
     return undefined;
 }
+
+export function isAmountValue(str: string) {
+    return !isNaN(+str) && +str > 0;
+}
