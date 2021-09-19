@@ -12,6 +12,36 @@ class WalletServiceClient extends JsonServiceClient_1.JsonServiceClient {
     constructor() {
         super(WalletServiceClient.url, WalletServiceClient.clientMetadata);
     }
+    async readWallet(walletId) {
+        return axios_1.default.get(this.url + `/?wallet=${walletId}`, {
+            headers: this.defaultHeaders
+        })
+            .then((res) => {
+            if (res.data.success) {
+                return res.data.data[0] || undefined;
+            }
+            return undefined;
+        });
+    }
+    async transfer(walletId, data) {
+        return axios_1.default.post(this.url + `/${walletId}/transfer`, data, {
+            withCredentials: true,
+            headers: {
+                ...this.defaultHeaders,
+                'Content-Type': 'application/json;charset=utf-8'
+            }
+        }).then(res => {
+            return {
+                statusCode: res.status,
+                data: res.data
+            };
+        }, err => {
+            return {
+                statusCode: err.response.status,
+                data: err.response.data
+            };
+        });
+    }
     async readMainWallet(userId) {
         return axios_1.default.get(this.url + `/?user=${userId}&principal=true`, {
             headers: this.defaultHeaders

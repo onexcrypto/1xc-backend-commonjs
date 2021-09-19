@@ -147,6 +147,7 @@ export interface BusinessProfile extends Indexable, Insertable, Patchable{
 export interface Project extends Indexable, Insertable, Patchable {
     userId: string;
     name: string;
+    walletId: string;
 }
 
 export type PaymentStatus = "pending" | "confirmed" | "cancelled" | "paid";
@@ -163,6 +164,7 @@ export interface BusinessPaymentIntent extends Money, Indexable, Insertable {
     paidAt?: number;
     cancelledAt?: number;
     userId?: string;
+    walletId?: string;
     failureText?: string;
 }
 export interface BusinessPayment extends Indexable, Insertable {
@@ -171,6 +173,7 @@ export interface BusinessPayment extends Indexable, Insertable {
     walletDest: string;
     transactionId: string;
     userId: string;
+    merchantId: string;
 }
 
 export interface IBusinessCorrection {

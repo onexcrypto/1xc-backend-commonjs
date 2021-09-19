@@ -12,41 +12,80 @@ export class WalletServiceClient extends JsonServiceClient<Wallet>{
     static clientMetadata: ServiceMetadata;
     static url: string;
 
-    constructor(){
+    constructor() {
         super(WalletServiceClient.url, WalletServiceClient.clientMetadata);
     }
 
-    async readMainWallet(userId: string):Promise<Wallet|undefined>{
+    async readWallet(walletId: string): Promise<Wallet | undefined> {
         return Axios.get(
-            this.url+`/?user=${userId}&principal=true`,
+            this.url + `/?wallet=${walletId}`,
             {
                 headers: this.defaultHeaders
             }
         )
-        .then((res) => {
-            if(res.data.success){
-                return res.data.data[0] || undefined;
+            .then((res) => {
+                if (res.data.success) {
+                    return res.data.data[0] || undefined;
+                }
+                return undefined;
+            })
+    }
+
+    async transfer(walletId: string, data: { receiverWallet: string, amount: number, reason?: string }): Promise<{ statusCode: number; data: { success: boolean; data?: any; errors?: any } }> {
+        return Axios.post(
+            this.url + `/${walletId}/transfer`
+            , data
+            , {
+                withCredentials: true,
+                headers: {
+                    ...this.defaultHeaders,
+                    'Content-Type': 'application/json;charset=utf-8'
+                }
             }
-            return undefined;
+        ).then(res => {
+            return {
+                statusCode: res.status
+                , data: res.data
+            }
+        }, err => {
+            return {
+                statusCode: err.response.status,
+                data: err.response.data
+            };
         })
     }
 
-    async readBusinessWallet(userId: string):Promise<Wallet|undefined>{
+    async readMainWallet(userId: string): Promise<Wallet | undefined> {
         return Axios.get(
-            this.url+`/?user=${userId}&business=true`,
+            this.url + `/?user=${userId}&principal=true`,
             {
                 headers: this.defaultHeaders
             }
         )
-        .then((res) => {
-            if(res.data.success){
-                return res.data.data[0] || undefined;
-            }
-            return undefined;
-        })
+            .then((res) => {
+                if (res.data.success) {
+                    return res.data.data[0] || undefined;
+                }
+                return undefined;
+            })
     }
 
-    async debit(wallet: string, money: Money, memo: string, type: WalletHistoryType = "normal"){
+    async readBusinessWallet(userId: string): Promise<Wallet | undefined> {
+        return Axios.get(
+            this.url + `/?user=${userId}&business=true`,
+            {
+                headers: this.defaultHeaders
+            }
+        )
+            .then((res) => {
+                if (res.data.success) {
+                    return res.data.data[0] || undefined;
+                }
+                return undefined;
+            })
+    }
+
+    async debit(wallet: string, money: Money, memo: string, type: WalletHistoryType = "normal") {
         let toPost = {
             ...money,
             memo,
@@ -64,14 +103,14 @@ export class WalletServiceClient extends JsonServiceClient<Wallet>{
                 },
             }
         )
-        .then((res) => {
-            if(res.data.success){
-                return res.data as CreditOrDebitResult;
-            }
-        })
+            .then((res) => {
+                if (res.data.success) {
+                    return res.data as CreditOrDebitResult;
+                }
+            })
     }
 
-    async credit(wallet: string, money: Money, memo: string, type: WalletHistoryType = "normal"){
+    async credit(wallet: string, money: Money, memo: string, type: WalletHistoryType = "normal") {
         let toPost = {
             ...money,
             memo,
@@ -89,11 +128,11 @@ export class WalletServiceClient extends JsonServiceClient<Wallet>{
                 },
             }
         )
-        .then((res) => {
-            if(res.data.success){
-                return res.data as CreditOrDebitResult;
-            }
-        })
+            .then((res) => {
+                if (res.data.success) {
+                    return res.data as CreditOrDebitResult;
+                }
+            })
     }
 }
 
