@@ -142,10 +142,10 @@ export interface BusinessPaymentIntent extends Money, Indexable, Insertable {
     failureText?: string;
 }
 export interface BusinessPayment extends Indexable, Insertable {
-    intent: string;
+    intentId: string;
+    transactionId: string;
     walletSource: string;
     walletDest: string;
-    transactionId: string;
     userId: string;
     merchantId: string;
 }
