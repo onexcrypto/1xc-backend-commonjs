@@ -74,6 +74,10 @@ export interface Wallet extends Indexable, Insertable, Patchable {
     balance: Money;
     isMain: boolean;
 }
+export interface WalletPIN extends Indexable, Patchable {
+    pinHash: string;
+    walletId: string;
+}
 export declare type WalletHistoryType = "commission" | "normal";
 export interface WalletHistory extends Indexable, Insertable, Money {
     type: WalletHistoryType;

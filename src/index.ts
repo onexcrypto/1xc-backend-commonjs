@@ -90,6 +90,11 @@ export interface Wallet extends Indexable, Insertable, Patchable{
     isMain: boolean;
 }
 
+export interface WalletPIN extends Indexable, Patchable {
+    pinHash: string;
+    walletId: string;
+}
+
 export type WalletHistoryType = "commission" | "normal";
 export interface WalletHistory extends Indexable, Insertable, Money{
     type: WalletHistoryType;
