@@ -74,7 +74,7 @@ export interface Wallet extends Indexable, Insertable, Patchable {
     balance: Money;
     isMain: boolean;
 }
-export interface WalletPIN extends Indexable, Patchable {
+export interface WalletPIN extends Indexable, Insertable, Patchable {
     pinHash: string;
     walletId: string;
 }
