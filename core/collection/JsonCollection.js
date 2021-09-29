@@ -3,8 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.JsonCollection = void 0;
 const JsonDocFilter_1 = require("./JsonDocFilter");
 class JsonCollection {
-    db;
-    table;
     constructor(table, db) {
         this.db = db;
         this.table = table;

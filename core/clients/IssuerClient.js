@@ -7,8 +7,6 @@ exports.IssuerClient = void 0;
 const ServiceClient_1 = require("./ServiceClient");
 const axios_1 = __importDefault(require("axios"));
 class IssuerClient extends ServiceClient_1.ServiceClient {
-    static clientMetadata;
-    static url;
     constructor() {
         super(IssuerClient.url, IssuerClient.clientMetadata);
     }
