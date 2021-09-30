@@ -102,6 +102,23 @@ class WalletServiceClient extends JsonServiceClient_1.JsonServiceClient {
             }
         });
     }
+    async verifyPIN(data) {
+        return axios_1.default.post(`${this.url}/pins/verify`, data, {
+            withCredentials: true,
+            headers: {
+                ...this.defaultHeaders,
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+        })
+            .then((res) => {
+            if (res.data.success) {
+                return true;
+            }
+            return false;
+        }, () => {
+            return false;
+        });
+    }
 }
 exports.WalletServiceClient = WalletServiceClient;
 exports.default = WalletServiceClient;

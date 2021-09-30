@@ -134,6 +134,31 @@ export class WalletServiceClient extends JsonServiceClient<Wallet>{
                 }
             })
     }
+
+    async verifyPIN(data: { walletId: string;pin: string}) {
+        
+        return Axios.post(
+            `${this.url}/pins/verify`,
+            data,
+            {
+                withCredentials: true,
+                headers: {
+                    ...this.defaultHeaders,
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+            }
+        )
+            .then((res) => {
+                if (res.data.success) {
+                    return true;
+                }
+                return false
+            }
+            , () => {
+                return false
+            })
+    }
+
 }
 
 export default WalletServiceClient;

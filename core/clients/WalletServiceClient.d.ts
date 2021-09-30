@@ -25,5 +25,9 @@ export declare class WalletServiceClient extends JsonServiceClient<Wallet> {
     readBusinessWallet(userId: string): Promise<Wallet | undefined>;
     debit(wallet: string, money: Money, memo: string, type?: WalletHistoryType): Promise<CreditOrDebitResult | undefined>;
     credit(wallet: string, money: Money, memo: string, type?: WalletHistoryType): Promise<CreditOrDebitResult | undefined>;
+    verifyPIN(data: {
+        walletId: string;
+        pin: string;
+    }): Promise<boolean>;
 }
 export default WalletServiceClient;
