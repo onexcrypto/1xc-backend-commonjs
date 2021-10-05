@@ -149,15 +149,38 @@ export interface BusinessProfile extends Indexable, Insertable, Patchable{
     corrections?: IBusinessCorrection[]; 
 }
 
+interface Type<Name> {
+    type: Name;
+}
+
+type ProjectMobileVariant = 'android' | 'ios';
+type ProjectWebVariant = 'site' | 'ip';
+
+interface ProjectTypeVariant<Variant> {
+    variant: Variant;
+}
+
+export interface ProjectTypeWeb extends Type<'web'>, ProjectTypeVariant<ProjectWebVariant> {
+    url: string;
+}
+
+export interface ProjectTypeMobile extends Type<'mobile'>, ProjectTypeVariant<ProjectMobileVariant> {
+    packageID: 'string';
+}
+export type ProjectType = ProjectTypeWeb | ProjectTypeMobile;
+
+
 export interface Project extends Indexable, Insertable, Patchable {
-    userId: string;
     name: string;
+    commissionRegulationRate: number;
+    logo: string;
     walletId: string;
+    userId: string;
 }
 
 export type PaymentStatus = "pending" | "confirmed" | "cancelled" | "paid";
 
-export type BusinessPIStatus = PaymentStatus | "failure";
+export type BusinessPIStatus = PaymentStatus | "failed" | "expired";
 export interface BusinessPaymentIntent extends Money, Indexable, Insertable {
     responseURL: string;
     projectId: string;
