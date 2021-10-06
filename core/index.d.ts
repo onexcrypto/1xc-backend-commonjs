@@ -124,21 +124,26 @@ export interface BusinessProfile extends Indexable, Insertable, Patchable {
     status: BusinessProfileStatus;
     corrections?: IBusinessCorrection[];
 }
-interface Type<Name> {
+interface AppType<Name> {
     type: Name;
 }
-declare type ProjectMobileVariant = 'android' | 'ios';
-declare type ProjectWebVariant = 'site' | 'ip';
-interface ProjectTypeVariant<Variant> {
+declare type AppMobileVariant = 'android' | 'ios';
+declare type AppWebVariant = 'site' | 'ip';
+interface AppVariant<Variant> {
     variant: Variant;
 }
-export interface ProjectTypeWeb extends Type<'web'>, ProjectTypeVariant<ProjectWebVariant> {
+export interface AppWebArea {
     url: string;
 }
-export interface ProjectTypeMobile extends Type<'mobile'>, ProjectTypeVariant<ProjectMobileVariant> {
-    packageID: 'string';
+export interface AppMobileArea {
+    packageID: string;
 }
-export declare type ProjectType = ProjectTypeWeb | ProjectTypeMobile;
+export interface AppArea {
+    projectId: string;
+}
+export declare type AppWeb = AppType<'web'> & AppVariant<AppWebVariant> & AppWebArea;
+export declare type AppMobile = AppType<'mobile'> & AppVariant<AppMobileVariant> & AppMobileArea;
+export declare type Application = Insertable & Indexable & Patchable & (AppWeb | AppMobile) & AppArea;
 export interface Project extends Indexable, Insertable, Patchable {
     name: string;
     commissionRegulationRate: number;
