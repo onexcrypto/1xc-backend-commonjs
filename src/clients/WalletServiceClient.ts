@@ -31,7 +31,7 @@ export class WalletServiceClient extends JsonServiceClient<Wallet>{
             })
     }
 
-    async transfer(walletId: string, data: { receiverWallet: string, amount: number, reason?: string }): Promise<{ statusCode: number; data: { success: boolean; data?: any; errors?: any } }> {
+    async transfer(walletId: string, data: any): Promise<{ statusCode: number; data: { success: boolean; data?: any; errors?: any } }> {
         return Axios.post(
             this.url + `/${walletId}/transfer`
             , data

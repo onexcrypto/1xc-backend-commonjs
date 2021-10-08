@@ -9,11 +9,7 @@ export declare class WalletServiceClient extends JsonServiceClient<Wallet> {
     static url: string;
     constructor();
     readWallet(walletId: string): Promise<Wallet | undefined>;
-    transfer(walletId: string, data: {
-        receiverWallet: string;
-        amount: number;
-        reason?: string;
-    }): Promise<{
+    transfer(walletId: string, data: any): Promise<{
         statusCode: number;
         data: {
             success: boolean;
