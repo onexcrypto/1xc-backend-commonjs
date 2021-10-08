@@ -165,7 +165,8 @@ export interface AppWebArea {
 }
 
 export interface AppMobileArea {
-    packageID: string;
+    url: string;
+    packageID?: string;
 }
 
 export interface AppArea {
