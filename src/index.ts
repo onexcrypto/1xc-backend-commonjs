@@ -181,7 +181,7 @@ export type Application = Insertable & Indexable & Patchable & (AppWeb | AppMobi
 
 export interface Project extends Indexable, Insertable, Patchable {
     name: string;
-    commissionRegulationRate: number;
+    commissionRate: number;
     logo: string;
     walletId: string;
     userId: string;
