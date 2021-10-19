@@ -311,6 +311,7 @@ export interface WalletTransfer extends Indexable, Insertable {
     };
     status: "completed";
     reason?: string;
+    metadata: any;
 }
 export * from './Logger';
 export * from './clients';
