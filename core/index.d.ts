@@ -18,6 +18,9 @@ export interface TransfertProperties {
     pricings: {
         [key: string]: PriceStep[];
     };
+    webPricings?: {
+        [key: string]: PriceStep[];
+    };
 }
 export interface SystemProperties {
     wallets: {
@@ -147,7 +150,7 @@ export declare type AppMobile = AppType<'mobile'> & AppVariant<AppMobileVariant>
 export declare type Application = Insertable & Indexable & Patchable & (AppWeb | AppMobile) & AppArea;
 export interface Project extends Indexable, Insertable, Patchable {
     name: string;
-    commissionRegulationRate: number;
+    commissionRate: number;
     logo: string;
     walletId: string;
     userId: string;
