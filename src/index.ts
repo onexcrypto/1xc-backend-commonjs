@@ -358,9 +358,10 @@ export interface WalletTransfer extends Indexable, Insertable {
     proofs: {
         sender: string; /// sender emission history ID
         receiver: string; /// receiver reception history ID
-    }
+    },
     status: "completed";
     reason?: string;
+    metadata: any;
 }
 
 export * from './Logger';
