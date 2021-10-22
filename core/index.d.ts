@@ -150,6 +150,7 @@ export declare type AppMobile = AppType<'mobile'> & AppVariant<AppMobileVariant>
 export declare type Application = Insertable & Indexable & Patchable & (AppWeb | AppMobile) & AppArea;
 export interface Project extends Indexable, Insertable, Patchable {
     name: string;
+    description?: string;
     commissionRate: number;
     logo: string;
     walletId: string;
