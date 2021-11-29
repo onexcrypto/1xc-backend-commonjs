@@ -370,6 +370,20 @@ export interface WalletTransfer extends Indexable, Insertable {
     metadata: any;
 }
 
+export interface IAccessControl {
+    path: string;
+    allowed: boolean;
+    allowedHeaders: string[];
+    allowedMethods: string[];
+}
+export interface ICorsOrigin extends Indexable, Insertable, Patchable {
+    origin: string;
+    enabled: boolean;
+    allowedAllAccess?: boolean;
+    accessControls?: IAccessControl[];
+}
+
+
 export * from './Logger';
 export * from './clients';
 export * from './collection';
