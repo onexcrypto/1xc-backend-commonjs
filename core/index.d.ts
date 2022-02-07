@@ -64,11 +64,13 @@ export interface AccountVerificationCode extends Indexable {
     userId: string;
     code: string;
 }
+declare type AccountType = "std" | "mp" | "wm" | "pos" | "sm";
 export interface Customer extends User {
     status: UserStatus;
     country: string;
     verified: boolean;
     isMerchant: boolean;
+    type: AccountType;
 }
 export declare type WalletType = "business" | "standard";
 export interface Wallet extends Indexable, Insertable, Patchable {

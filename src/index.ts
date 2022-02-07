@@ -78,11 +78,14 @@ export interface AccountVerificationCode extends Indexable{
     code: string;
 }
 
+type AccountType = "std" | "mp" | "wm" | "pos" | "sm"; /// std: customer standard, mp: Money Point, pos: POS merchant
+
 export interface Customer extends User{
     status: UserStatus;
     country: string;
     verified: boolean;
     isMerchant: boolean;
+    type: AccountType;
 }
 
 export type WalletType = "business" | "standard";
