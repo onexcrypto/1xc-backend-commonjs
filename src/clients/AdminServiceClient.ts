@@ -7,8 +7,8 @@ export class AdminServiceClient extends JsonServiceClient<Admin>{
     static clientMetadata: ServiceMetadata;
     static url: string;
 
-    constructor(){
-        super(AdminServiceClient.url, AdminServiceClient.clientMetadata);
+    constructor(url: string | undefined = undefined, meta: ServiceMetadata| undefined = undefined){
+        super(url || AdminServiceClient.url, meta || AdminServiceClient.clientMetadata);
     }
 
     async readWithRole(id: string):Promise<AdminWithRoles>{

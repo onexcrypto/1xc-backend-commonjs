@@ -1,7 +1,11 @@
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -64,6 +68,20 @@ exports.configureClientMetadata = configureClientMetadata;
 function configureProxyAccess(url, meta) {
     configureProxyEndpoint(url);
     configureClientMetadata(meta);
+    if (!global.Api) {
+        global.Api = {
+            admins: new AdminServiceClient_1.AdminServiceClient(),
+            assets: new AssetServiceClient_1.AssetServiceClient(),
+            businesses: new BusinessServiceClient_1.BusinessServiceClient(),
+            conversions: new ConversionServiceClient_1.ConversionServiceClient(),
+            issuer: new IssuerClient_1.IssuerClient(),
+            projects: new ProjectServiceClient_1.default(),
+            methods: new MethodServiceClient_1.default(),
+            methodAccounts: new MethodAccountServiceClient_1.MethodAccountServiceClient(),
+            users: new UserServiceClient_1.UserServiceClient(),
+            wallets: new WalletServiceClient_1.WalletServiceClient()
+        };
+    }
 }
 exports.configureProxyAccess = configureProxyAccess;
 __exportStar(require("./AdminServiceClient"), exports);

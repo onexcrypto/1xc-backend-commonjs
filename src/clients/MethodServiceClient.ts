@@ -6,8 +6,8 @@ export class MethodServiceClient extends JsonServiceClient<Method>{
     static clientMetadata: ServiceMetadata;
     static url: string;
 
-    constructor(){
-        super(MethodServiceClient.url, MethodServiceClient.clientMetadata);
+    constructor(url: string | undefined = undefined, meta: ServiceMetadata| undefined = undefined){
+        super(url || MethodServiceClient.url, meta || MethodServiceClient.clientMetadata);
     }
 }
 

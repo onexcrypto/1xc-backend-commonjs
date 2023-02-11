@@ -1,5 +1,5 @@
-export declare type PriceValue = '-inf' | number | '+inf';
-export declare type PriceType = 'fixed' | 'percentage';
+export type PriceValue = '-inf' | number | '+inf';
+export type PriceType = 'fixed' | 'percentage';
 export interface PriceConfig {
     type: PriceType;
     amount: number;

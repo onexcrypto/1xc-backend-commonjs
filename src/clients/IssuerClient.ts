@@ -7,8 +7,8 @@ export class IssuerClient extends ServiceClient{
     static clientMetadata: ServiceMetadata;
     static url:string;
 
-    constructor(){
-        super(IssuerClient.url, IssuerClient.clientMetadata);
+    constructor(url: string | undefined = undefined, meta: ServiceMetadata| undefined = undefined){
+        super(url || IssuerClient.url, meta || IssuerClient.clientMetadata);
     }
 
     async sign(data: KeyValue): Promise<string>{

@@ -5,8 +5,8 @@ const JsonServiceClient_1 = require("./JsonServiceClient");
 class MethodServiceClient extends JsonServiceClient_1.JsonServiceClient {
     static clientMetadata;
     static url;
-    constructor() {
-        super(MethodServiceClient.url, MethodServiceClient.clientMetadata);
+    constructor(url = undefined, meta = undefined) {
+        super(url || MethodServiceClient.url, meta || MethodServiceClient.clientMetadata);
     }
 }
 exports.MethodServiceClient = MethodServiceClient;

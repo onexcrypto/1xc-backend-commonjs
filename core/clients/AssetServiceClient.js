@@ -9,8 +9,8 @@ const ServiceClient_1 = require("./ServiceClient");
 class AssetServiceClient extends ServiceClient_1.ServiceClient {
     static clientMetadata;
     static url;
-    constructor() {
-        super(AssetServiceClient.url, AssetServiceClient.clientMetadata);
+    constructor(url = undefined, meta = undefined) {
+        super(url || AssetServiceClient.url, meta || AssetServiceClient.clientMetadata);
     }
     async getMetadata(file) {
         return axios_1.default.get(`${this.url}/${file}/metadata`, {

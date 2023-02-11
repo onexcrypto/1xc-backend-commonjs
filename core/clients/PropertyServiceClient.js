@@ -9,8 +9,8 @@ const ServiceClient_1 = require("./ServiceClient");
 class PropertyServiceClient extends ServiceClient_1.ServiceClient {
     static clientMetadata;
     static url;
-    constructor() {
-        super(PropertyServiceClient.url, PropertyServiceClient.clientMetadata);
+    constructor(url = undefined, meta = undefined) {
+        super(url || PropertyServiceClient.url, meta || PropertyServiceClient.clientMetadata);
     }
     async read() {
         return axios_1.default.get(this.url, {

@@ -9,8 +9,8 @@ const JsonServiceClient_1 = require("./JsonServiceClient");
 class ProjectServiceClient extends JsonServiceClient_1.JsonServiceClient {
     static clientMetadata;
     static url;
-    constructor() {
-        super(ProjectServiceClient.url, ProjectServiceClient.clientMetadata);
+    constructor(url = undefined, meta = undefined) {
+        super(url || ProjectServiceClient.url, meta || ProjectServiceClient.clientMetadata);
     }
     async readOneProject(id) {
         return axios_1.default.get(`${this.url}/?id=${id}`, {

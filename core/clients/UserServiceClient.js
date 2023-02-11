@@ -9,8 +9,8 @@ const axios_1 = __importDefault(require("axios"));
 class UserServiceClient extends JsonServiceClient_1.JsonServiceClient {
     static clientMetadata;
     static url;
-    constructor() {
-        super(UserServiceClient.url, UserServiceClient.clientMetadata);
+    constructor(url = undefined, meta = undefined) {
+        super(url || UserServiceClient.url, meta || UserServiceClient.clientMetadata);
     }
     async getTokenData(token) {
         return axios_1.default.get(`${this.url}/uat/${token}`, {

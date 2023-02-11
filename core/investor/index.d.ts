@@ -2,7 +2,7 @@
  * @author Maximilien Comlan
  */
 import { Money } from "..";
-export declare type ID = string;
+export type ID = string;
 export interface InvestorData {
     id: ID;
     userId: ID;
@@ -74,7 +74,7 @@ export interface LevelRewardHistory extends BasicRewardHistory {
     type: "level";
     level: number;
 }
-export declare type RewardHistory = ChildRewardHistory | LevelRewardHistory;
+export type RewardHistory = ChildRewardHistory | LevelRewardHistory;
 export interface ChildRewardRequest {
     type: "child";
     reward: Money;
@@ -86,5 +86,5 @@ export interface LevelRewardRequest {
     level: number;
     investor: StoredInvestor;
 }
-export declare type RewardRequest = ChildRewardRequest | LevelRewardRequest;
+export type RewardRequest = ChildRewardRequest | LevelRewardRequest;
 export {};

@@ -7,8 +7,8 @@ export class PropertyServiceClient extends ServiceClient{
     static clientMetadata: ServiceMetadata;
     static url: string;
 
-    constructor(){
-        super(PropertyServiceClient.url, PropertyServiceClient.clientMetadata);
+    constructor(url: string | undefined = undefined, meta: ServiceMetadata| undefined = undefined){
+        super(url || PropertyServiceClient.url, meta || PropertyServiceClient.clientMetadata);
     }
 
     async read():Promise<SystemProperties | undefined>{

@@ -11,8 +11,8 @@ function userMiddlewareAuthenticator(logger, apiUrl, metadata) {
                 next();
             }
             else if (auth) {
-                clients_1.configureProxyAccess(apiUrl, metadata);
-                let { format, token } = (utils_1.parseAuthorizationHeader(auth) || {});
+                (0, clients_1.configureProxyAccess)(apiUrl, metadata);
+                let { format, token } = ((0, utils_1.parseAuthorizationHeader)(auth) || {});
                 if (!token) {
                     return next();
                 }

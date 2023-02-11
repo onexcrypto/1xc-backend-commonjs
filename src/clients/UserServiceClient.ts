@@ -7,8 +7,8 @@ export class UserServiceClient extends JsonServiceClient<Customer>{
     static clientMetadata: ServiceMetadata;
     static url: string;
 
-    constructor(){
-        super(UserServiceClient.url, UserServiceClient.clientMetadata);
+    constructor(url: string | undefined = undefined, meta: ServiceMetadata| undefined = undefined){
+        super(url || UserServiceClient.url, meta || UserServiceClient.clientMetadata);
     }
 
     async getTokenData(token: string): Promise<{token: AccessToken, userId: string, firstName: string, lastName: string}>{

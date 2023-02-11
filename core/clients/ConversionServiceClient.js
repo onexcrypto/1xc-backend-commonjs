@@ -9,8 +9,8 @@ const ServiceClient_1 = require("./ServiceClient");
 class ConversionServiceClient extends ServiceClient_1.ServiceClient {
     static clientMetadata;
     static url;
-    constructor() {
-        super(ConversionServiceClient.url, ConversionServiceClient.clientMetadata);
+    constructor(url = undefined, meta = undefined) {
+        super(url || ConversionServiceClient.url, meta || ConversionServiceClient.clientMetadata);
     }
     async getRate(from, to) {
         return axios_1.default.get(`${this.url}/${from}/${to}`, {

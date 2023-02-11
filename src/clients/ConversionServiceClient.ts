@@ -7,8 +7,8 @@ export class ConversionServiceClient extends ServiceClient{
     static clientMetadata: ServiceMetadata;
     static url: string;
 
-    constructor(){
-        super(ConversionServiceClient.url, ConversionServiceClient.clientMetadata);
+    constructor(url: string | undefined = undefined, meta: ServiceMetadata| undefined = undefined){
+        super(url || ConversionServiceClient.url, meta || ConversionServiceClient.clientMetadata);
     }
 
     async getRate(from: string, to: string):Promise<ExchangeCalculation|undefined>{

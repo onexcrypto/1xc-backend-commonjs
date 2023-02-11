@@ -8,7 +8,7 @@ export interface AssetMetadata {
 export declare class AssetServiceClient extends ServiceClient {
     static clientMetadata: ServiceMetadata;
     static url: string;
-    constructor();
+    constructor(url?: string | undefined, meta?: ServiceMetadata | undefined);
     getMetadata(file: string): Promise<AssetMetadata | undefined>;
     removeFile(file: string): Promise<boolean>;
 }

@@ -7,8 +7,8 @@ export class MethodAccountServiceClient extends JsonServiceClient<MethodAccount>
     static clientMetadata: ServiceMetadata;
     static url: string;
 
-    constructor(){
-        super(MethodAccountServiceClient.url, MethodAccountServiceClient.clientMetadata);
+    constructor(url: string | undefined = undefined, meta: ServiceMetadata| undefined = undefined){
+        super(url || MethodAccountServiceClient.url, meta || MethodAccountServiceClient.clientMetadata);
     }
 
     private async getFirst(type: MethodAccountType){

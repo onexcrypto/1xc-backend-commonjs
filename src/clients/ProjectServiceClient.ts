@@ -7,8 +7,8 @@ export class ProjectServiceClient extends JsonServiceClient<Project>{
     static clientMetadata: ServiceMetadata;
     static url: string;
 
-    constructor(){
-        super(ProjectServiceClient.url, ProjectServiceClient.clientMetadata);
+    constructor(url: string | undefined = undefined, meta: ServiceMetadata| undefined = undefined){
+        super(url || ProjectServiceClient.url, meta || ProjectServiceClient.clientMetadata);
     }
 
     async readOneProject(id: string): Promise<Project|undefined>{

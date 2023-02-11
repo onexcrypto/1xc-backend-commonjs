@@ -9,8 +9,8 @@ const JsonServiceClient_1 = require("./JsonServiceClient");
 class MethodAccountServiceClient extends JsonServiceClient_1.JsonServiceClient {
     static clientMetadata;
     static url;
-    constructor() {
-        super(MethodAccountServiceClient.url, MethodAccountServiceClient.clientMetadata);
+    constructor(url = undefined, meta = undefined) {
+        super(url || MethodAccountServiceClient.url, meta || MethodAccountServiceClient.clientMetadata);
     }
     async getFirst(type) {
         return axios_1.default.get(this.url + "?type=" + type, {

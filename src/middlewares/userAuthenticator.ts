@@ -52,7 +52,7 @@ export function userMiddlewareAuthenticator(logger: Logger, apiUrl: string, meta
                 next();
             }
         }
-        catch (err) {
+        catch (err: any) {
             logger.error(err.message || err.toString());
             next();
         }

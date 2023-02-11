@@ -9,8 +9,8 @@ const axios_1 = __importDefault(require("axios"));
 class IssuerClient extends ServiceClient_1.ServiceClient {
     static clientMetadata;
     static url;
-    constructor() {
-        super(IssuerClient.url, IssuerClient.clientMetadata);
+    constructor(url = undefined, meta = undefined) {
+        super(url || IssuerClient.url, meta || IssuerClient.clientMetadata);
     }
     async sign(data) {
         return axios_1.default.post(`${this.url}/issue`, data, {

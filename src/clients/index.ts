@@ -16,25 +16,25 @@ import { WalletServiceClient } from "./WalletServiceClient";
  * @param url - the base url of the proxy that interconnects queryable rest apis of services
  */
 
-export function configureProxyEndpoint(url: string){
-    AdminServiceClient.url = url+"/admins";
-    AssetServiceClient.url = url+"/assets";
-    BusinessServiceClient.url = url+"/business";
-    ConversionServiceClient.url = url+"/rates";
-    IssuerClient.url = url+"/issuer";
-    ProjectServiceClient.url = url+"/projects"
-    PropertyServiceClient.url = url+'/system/properties';
-    MethodServiceClient.url = url+'/system/methods';
-    MethodAccountServiceClient.url = url+'/system/accounts';
-    UserServiceClient.url = url+'/users';
-    WalletServiceClient.url = url+'/wallets';
+export function configureProxyEndpoint(url: string) {
+    AdminServiceClient.url = url + "/admins";
+    AssetServiceClient.url = url + "/assets";
+    BusinessServiceClient.url = url + "/business";
+    ConversionServiceClient.url = url + "/rates";
+    IssuerClient.url = url + "/issuer";
+    ProjectServiceClient.url = url + "/projects"
+    PropertyServiceClient.url = url + '/system/properties';
+    MethodServiceClient.url = url + '/system/methods';
+    MethodAccountServiceClient.url = url + '/system/accounts';
+    UserServiceClient.url = url + '/users';
+    WalletServiceClient.url = url + '/wallets';
 }
 
 /**
  * Setup client metadata on every client code connection to any service
  * @param meta the metadatas of the connecting client
  */
-export function configureClientMetadata(meta: ServiceMetadata){
+export function configureClientMetadata(meta: ServiceMetadata) {
     AdminServiceClient.clientMetadata = meta;
     AssetServiceClient.clientMetadata = meta;
     BusinessServiceClient.clientMetadata = meta;
@@ -48,9 +48,24 @@ export function configureClientMetadata(meta: ServiceMetadata){
     WalletServiceClient.clientMetadata = meta;
 }
 
-export function configureProxyAccess(url: string, meta: ServiceMetadata){
+export function configureProxyAccess(url: string, meta: ServiceMetadata) {
     configureProxyEndpoint(url);
     configureClientMetadata(meta);
+
+    if (!global.Api) {
+        global.Api = {
+            admins: new AdminServiceClient(),
+            assets: new AssetServiceClient(),
+            businesses: new BusinessServiceClient(),
+            conversions: new ConversionServiceClient(),
+            issuer: new IssuerClient(),
+            projects: new ProjectServiceClient(),
+            methods: new MethodServiceClient(),
+            methodAccounts: new MethodAccountServiceClient(),
+            users: new UserServiceClient(),
+            wallets: new WalletServiceClient()
+        }
+    }
 }
 
 export * from "./AdminServiceClient";

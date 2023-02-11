@@ -9,8 +9,8 @@ const JsonServiceClient_1 = require("./JsonServiceClient");
 class WalletServiceClient extends JsonServiceClient_1.JsonServiceClient {
     static clientMetadata;
     static url;
-    constructor() {
-        super(WalletServiceClient.url, WalletServiceClient.clientMetadata);
+    constructor(url = undefined, meta = undefined) {
+        super(url || WalletServiceClient.url, meta || WalletServiceClient.clientMetadata);
     }
     async readWallet(walletId) {
         return axios_1.default.get(this.url + `/?wallet=${walletId}`, {

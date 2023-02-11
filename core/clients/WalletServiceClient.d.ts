@@ -7,7 +7,7 @@ interface CreditOrDebitResult {
 export declare class WalletServiceClient extends JsonServiceClient<Wallet> {
     static clientMetadata: ServiceMetadata;
     static url: string;
-    constructor();
+    constructor(url?: string | undefined, meta?: ServiceMetadata | undefined);
     readWallet(walletId: string): Promise<Wallet | undefined>;
     transfer(walletId: string, data: any): Promise<{
         statusCode: number;

@@ -8,7 +8,7 @@ export interface ServiceMetadata {
     host: string;
     port: number;
 }
-export declare type TokenType = "user" | "admin";
+export type TokenType = "user" | "admin";
 export interface TokenData {
     type: TokenType;
     method: "ses" | "uat";
@@ -20,7 +20,7 @@ export interface UserSESData extends TokenData {
     firstName: string;
     lastName: string;
 }
-export declare type AccessMode = "read" | "write" | "read+write";
+export type AccessMode = "read" | "write" | "read+write";
 export interface UserUATData extends TokenData {
     type: "user";
     method: "uat";
@@ -38,7 +38,7 @@ export interface AdminTokenData extends TokenData {
     lastName: string;
     roles: ScopedRole[];
 }
-export declare type PeerType = "service" | TokenType;
+export type PeerType = "service" | TokenType;
 export interface BasePeer {
     type: PeerType;
     data: any;
@@ -55,5 +55,5 @@ interface AdminPeer extends BasePeer {
     type: "admin";
     data: AdminTokenData;
 }
-export declare type Peer = ServicePeer | UserPeer | AdminPeer;
+export type Peer = ServicePeer | UserPeer | AdminPeer;
 export {};

@@ -9,8 +9,8 @@ const JsonServiceClient_1 = require("./JsonServiceClient");
 class AdminServiceClient extends JsonServiceClient_1.JsonServiceClient {
     static clientMetadata;
     static url;
-    constructor() {
-        super(AdminServiceClient.url, AdminServiceClient.clientMetadata);
+    constructor(url = undefined, meta = undefined) {
+        super(url || AdminServiceClient.url, meta || AdminServiceClient.clientMetadata);
     }
     async readWithRole(id) {
         return axios_1.default.get(`${this.url}/${id}/with-roles`, {

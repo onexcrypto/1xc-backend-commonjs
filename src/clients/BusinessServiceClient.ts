@@ -6,8 +6,8 @@ export class BusinessServiceClient extends JsonServiceClient<BusinessProfile>{
     static clientMetadata: ServiceMetadata;
     static url: string;
 
-    constructor(){
-        super(BusinessServiceClient.url, BusinessServiceClient.clientMetadata);
+    constructor(url: string | undefined = undefined, meta: ServiceMetadata| undefined = undefined){
+        super(url || BusinessServiceClient.url, meta || BusinessServiceClient.clientMetadata);
     }
 }
 

@@ -12,8 +12,8 @@ export class AssetServiceClient extends ServiceClient{
     static clientMetadata: ServiceMetadata;
     static url: string;
 
-    constructor(){
-        super(AssetServiceClient.url, AssetServiceClient.clientMetadata);
+    constructor(url: string | undefined = undefined, meta: ServiceMetadata| undefined = undefined){
+        super(url || AssetServiceClient.url, meta || AssetServiceClient.clientMetadata);
     }
 
     async getMetadata(file: string):Promise<AssetMetadata|undefined>{

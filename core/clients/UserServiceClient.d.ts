@@ -4,7 +4,7 @@ import { JsonServiceClient } from "./JsonServiceClient";
 export declare class UserServiceClient extends JsonServiceClient<Customer> {
     static clientMetadata: ServiceMetadata;
     static url: string;
-    constructor();
+    constructor(url?: string | undefined, meta?: ServiceMetadata | undefined);
     getTokenData(token: string): Promise<{
         token: AccessToken;
         userId: string;

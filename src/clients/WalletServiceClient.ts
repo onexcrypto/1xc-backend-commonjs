@@ -12,8 +12,8 @@ export class WalletServiceClient extends JsonServiceClient<Wallet>{
     static clientMetadata: ServiceMetadata;
     static url: string;
 
-    constructor() {
-        super(WalletServiceClient.url, WalletServiceClient.clientMetadata);
+    constructor(url: string | undefined = undefined, meta: ServiceMetadata| undefined = undefined){
+        super(url || WalletServiceClient.url, meta || WalletServiceClient.clientMetadata);
     }
 
     async readWallet(walletId: string): Promise<Wallet | undefined> {
