@@ -35,5 +35,8 @@ export interface IRuleExchange extends IAbstractRule {
 export interface IRuleTransfer extends IAbstractRule {
     name: "wallet.transfer";
 }
-export type UserRule = IRuleCardScan | IRuleCardEmit | IRuleExchange | IRuleTransfer;
+export interface IRuleUser extends IAbstractRule {
+    name: "subaccounts";
+}
+export type UserRule = IRuleUser | IRuleCardScan | IRuleCardEmit | IRuleExchange | IRuleTransfer;
 export {};

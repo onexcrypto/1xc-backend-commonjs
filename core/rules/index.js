@@ -18,4 +18,5 @@ __exportStar(require("./types"), exports);
 __exportStar(require("./card"), exports);
 __exportStar(require("./exchange"), exports);
 __exportStar(require("./transfer"), exports);
+__exportStar(require("./user"), exports);
 __exportStar(require("./utils"), exports);
