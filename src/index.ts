@@ -1,6 +1,7 @@
 import { NetworkRule } from "./investor";
 import { PriceStep } from "./pricing";
 import { ScopedRole } from "./roles";
+import { UserRule } from "./rules";
 
 interface Indexable{
     id: string;
@@ -86,6 +87,7 @@ export interface Customer extends User{
     verified: boolean;
     isMerchant: boolean;
     type: AccountType;
+    rules?: UserRule[];
 }
 
 export type WalletType = "business" | "standard";
@@ -94,6 +96,7 @@ export interface Wallet extends Indexable, Insertable, Patchable{
     type: WalletType;
     balance: Money;
     isMain: boolean;
+    isAnonymous?: boolean;
 }
 
 export interface WalletPIN extends Indexable, Insertable, Patchable {
@@ -393,6 +396,7 @@ export * from './collection';
 export * from './investor';
 export * from './peers';
 export * from './roles';
+export * from "./rules";
 export * from "./resumes";
 export * from './utils';
 export * from "./pricing";
