@@ -3,6 +3,7 @@ type UserProfileScope = "user:profile:read"
     | "user:profile:create"
     | "user:profile:activate"
     | "user:profile:block"
+    | "user:profile:update"
     | "user:profile:.*"
     | "user:rules:assign"
     | "user:subaccounts:create" // all profile roles
