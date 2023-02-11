@@ -1,4 +1,4 @@
-type UserProfileScope = "user:profile:read" | "user:profile:create" | "user:profile:activate" | "user:profile:block" | "user:profile:.*" | "user.rules.assign" | "user.subaccounts.create";
+type UserProfileScope = "user:profile:read" | "user:profile:create" | "user:profile:activate" | "user:profile:block" | "user:profile:.*" | "user:rules:assign" | "user:subaccounts:create";
 type UserBusinessScope = "user:business:read" | "user:business:allow" | "user:business:block" | "user:business:delete" | "user:business:.*";
 type ProjectScope = "user:project:read" | "user:project:delete" | "user:project:.*";
 type TicketScope = "ticket:details:read" | "ticket:status:approve" | "ticket:status:abort" | "ticket:transaction:read" | "ticket:status:.*" | "ticket:transaction:.*" | "ticket:.*:.*";

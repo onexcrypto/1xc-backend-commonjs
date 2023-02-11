@@ -4,8 +4,8 @@ type UserProfileScope = "user:profile:read"
     | "user:profile:activate"
     | "user:profile:block"
     | "user:profile:.*"
-    | "user.rules.assign"
-    | "user.subaccounts.create" // all profile roles
+    | "user:rules:assign"
+    | "user:subaccounts:create" // all profile roles
 
 type UserBusinessScope = "user:business:read"
     | "user:business:allow"
@@ -82,8 +82,8 @@ export const ScopedRoleList: ScopedRole[] = [
     "user:profile:activate",
     "user:profile:block",
     "user:profile:.*",
-    "user.rules.assign",
-    "user.subaccounts.create",
+    "user:rules:assign",
+    "user:subaccounts:create",
 
     "user:business:read",
     "user:business:allow",
