@@ -20,6 +20,7 @@ __exportStar(require("./collection"), exports);
 __exportStar(require("./investor"), exports);
 __exportStar(require("./peers"), exports);
 __exportStar(require("./roles"), exports);
+__exportStar(require("./rules"), exports);
 __exportStar(require("./resumes"), exports);
 __exportStar(require("./utils"), exports);
 __exportStar(require("./pricing"), exports);
