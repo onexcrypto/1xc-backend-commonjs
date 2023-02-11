@@ -1,7 +1,7 @@
 {
   "name": "1xc-backend-common",
   "version": "2.4.3",
-  "description": "common properties of 1xc subsystems written in javascript/typescript",
+  "description": "common properties of 1xc services written in typescript",
   "scripts": {
     "test": "jest",
     "build": "npm run prebuild & tsc",
