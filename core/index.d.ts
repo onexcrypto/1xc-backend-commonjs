@@ -66,6 +66,15 @@ export interface AccountVerificationCode extends Indexable {
     code: string;
 }
 type AccountType = "std" | "mp" | "wm" | "pos" | "sm";
+/**
+ * Represents media (images/ audio / video) content stored on the bucket;
+ */
+type Media = {
+    url: string;
+    name: string;
+    type: string;
+    size?: number;
+};
 export interface Customer extends User {
     status: UserStatus;
     country: string;
@@ -73,6 +82,11 @@ export interface Customer extends User {
     isMerchant: boolean;
     type: AccountType;
     rules?: UserRule[];
+    /**
+     * This field is available only for POS Users who can emit cards.
+     * It is printed on the generated card.
+     */
+    logo?: Media;
     parentId?: string;
 }
 export type WalletType = "business" | "standard";
