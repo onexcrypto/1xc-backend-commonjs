@@ -1,5 +1,5 @@
 import { ScopedRole } from "../roles";
-import { AccessToken } from "..";
+import { AccessToken, UserRule } from "..";
 export declare const SESSION_TOKEN_PREFIX = "ses__";
 export declare const UAT_TOKEN_PREFIX = "uat__";
 export interface ServiceMetadata {
@@ -19,6 +19,7 @@ export interface UserSESData extends TokenData {
     userId: string;
     firstName: string;
     lastName: string;
+    rules?: UserRule[];
 }
 export type AccessMode = "read" | "write" | "read+write";
 export interface UserUATData extends TokenData {
@@ -28,6 +29,7 @@ export interface UserUATData extends TokenData {
     userId: string;
     firstName: string;
     lastName: string;
+    rules?: UserRule[];
     token: AccessToken;
 }
 export interface AdminTokenData extends TokenData {

@@ -359,3 +359,4 @@ export * from "./resumes";
 export * from './utils';
 export * from "./pricing";
 export * from './middlewares/index';
+export * from "./global";

@@ -25,3 +25,4 @@ __exportStar(require("./resumes"), exports);
 __exportStar(require("./utils"), exports);
 __exportStar(require("./pricing"), exports);
 __exportStar(require("./middlewares/index"), exports);
+__exportStar(require("./global"), exports);
