@@ -73,6 +73,7 @@ export interface Customer extends User {
     isMerchant: boolean;
     type: AccountType;
     rules?: UserRule[];
+    parentId?: string;
 }
 export type WalletType = "business" | "standard";
 export interface Wallet extends Indexable, Insertable, Patchable {
