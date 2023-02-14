@@ -413,6 +413,7 @@ export interface GeneratedCard {
 
 export interface ICardGenerationRequest extends Indexable, Insertable {
     userId: string;
+    paymentId: string;
     cards: GeneratedCard[]
 }
 
