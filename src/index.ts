@@ -392,6 +392,16 @@ export interface WalletTransfer extends Indexable, Insertable {
     metadata: any;
 }
 
+export interface ICardGenerationRequest extends Indexable, Insertable {
+    userId: string;
+    quantity: number;
+    specs: {
+        color: number;
+        balancePerUnit: number;
+    }
+}
+
+
 export interface IAccessControl {
     path: string;
     allowed: boolean;
@@ -404,6 +414,7 @@ export interface ICorsOrigin extends Indexable, Insertable, Patchable {
     allowedAllAccess?: boolean;
     accessControls?: IAccessControl[];
 }
+
 
 
 export * from './Logger';
