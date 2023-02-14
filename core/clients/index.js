@@ -63,6 +63,7 @@ function configureClientMetadata(meta) {
     MethodAccountServiceClient_1.MethodAccountServiceClient.clientMetadata = meta;
     UserServiceClient_1.UserServiceClient.clientMetadata = meta;
     WalletServiceClient_1.WalletServiceClient.clientMetadata = meta;
+    PropertyServiceClient_1.PropertyServiceClient.clientMetadata = meta;
 }
 exports.configureClientMetadata = configureClientMetadata;
 function configureProxyAccess(url, meta) {
@@ -79,7 +80,8 @@ function configureProxyAccess(url, meta) {
             methods: new MethodServiceClient_1.default(),
             methodAccounts: new MethodAccountServiceClient_1.MethodAccountServiceClient(),
             users: new UserServiceClient_1.UserServiceClient(),
-            wallets: new WalletServiceClient_1.WalletServiceClient()
+            wallets: new WalletServiceClient_1.WalletServiceClient(),
+            properties: new PropertyServiceClient_1.PropertyServiceClient()
         };
     }
 }

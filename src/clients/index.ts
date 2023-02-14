@@ -46,6 +46,7 @@ export function configureClientMetadata(meta: ServiceMetadata) {
     MethodAccountServiceClient.clientMetadata = meta;
     UserServiceClient.clientMetadata = meta;
     WalletServiceClient.clientMetadata = meta;
+    PropertyServiceClient.clientMetadata = meta;
 }
 
 export function configureProxyAccess(url: string, meta: ServiceMetadata) {
@@ -63,7 +64,8 @@ export function configureProxyAccess(url: string, meta: ServiceMetadata) {
             methods: new MethodServiceClient(),
             methodAccounts: new MethodAccountServiceClient(),
             users: new UserServiceClient(),
-            wallets: new WalletServiceClient()
+            wallets: new WalletServiceClient(),
+            properties: new PropertyServiceClient()
         }
     }
 }

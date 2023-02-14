@@ -1,4 +1,16 @@
-import { AdminServiceClient, AssetServiceClient, BusinessServiceClient, ConversionServiceClient, IssuerClient, MethodAccountServiceClient, MethodServiceClient, ProjectServiceClient, UserServiceClient, WalletServiceClient } from "./clients";
+import {
+    AdminServiceClient,
+    AssetServiceClient,
+    BusinessServiceClient,
+    ConversionServiceClient,
+    IssuerClient,
+    MethodAccountServiceClient,
+    MethodServiceClient,
+    ProjectServiceClient,
+    PropertyServiceClient,
+    UserServiceClient,
+    WalletServiceClient
+} from "./clients";
 
 interface ApiClients {
     admins: AdminServiceClient,
@@ -10,7 +22,8 @@ interface ApiClients {
     methods: MethodServiceClient,
     methodAccounts: MethodAccountServiceClient,
     users: UserServiceClient,
-    wallets: WalletServiceClient
+    wallets: WalletServiceClient,
+    properties: PropertyServiceClient
 }
 
 declare global {
