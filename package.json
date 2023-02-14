@@ -1,6 +1,6 @@
 {
   "name": "1xc-backend-common",
-  "version": "2.5.1",
+  "version": "2.5.2",
   "description": "common properties of 1xc services written in typescript",
   "scripts": {
     "test": "jest",
@@ -30,6 +30,7 @@
     "axios": "^0.21.1",
     "express": "^4.17.1",
     "mysql": "^2.18.1",
+    "nanoid": "^4.0.1",
     "redis": "^3.0.2"
   },
   "main": "./core/index.js",
