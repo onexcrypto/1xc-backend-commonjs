@@ -336,13 +336,29 @@ export interface WalletTransfer extends Indexable, Insertable {
     reason?: string;
     metadata: any;
 }
+export interface GeneratedCard {
+    id: string;
+    serial: string;
+    read: string;
+    write: string;
+    type: string;
+    currency: string;
+    generatedAt: number;
+    boundWallet: {
+        id: string;
+        balance: Money;
+    };
+    name: string;
+    color: string;
+    website: string;
+    address: string;
+    phone: string;
+    email: string;
+    notice: string;
+}
 export interface ICardGenerationRequest extends Indexable, Insertable {
     userId: string;
-    quantity: number;
-    specs: {
-        color: number;
-        balancePerUnit: number;
-    };
+    cards: GeneratedCard[];
 }
 export interface IAccessControl {
     path: string;
