@@ -6,7 +6,7 @@ function serviceMiddlewareAuthenticator() {
         let serviceName = req.headers['service-name'];
         let serviceSignature = req.headers['service-signature'];
         if (serviceName && serviceSignature) {
-            req.redis.get(`${serviceName}.metadata`, (err, str) => {
+            req.redis.get(`${serviceName}.metadata`).then((str) => {
                 if (str) {
                     let meta = JSON.parse(str);
                     if (meta.signature === serviceSignature) {

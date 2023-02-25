@@ -1,9 +1,9 @@
-import { RedisClient } from "redis";
+import { RedisClientType } from "redis";
 export declare class Logger {
-    client: RedisClient;
+    client: RedisClientType;
     channel: string;
     service: string;
-    constructor(client: RedisClient, channel: string, service: string);
+    constructor(client: RedisClientType, channel: string, service: string);
     alert(message: string): void;
     critical(message: string): void;
     debug(message: string): void;

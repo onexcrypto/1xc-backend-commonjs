@@ -8,7 +8,7 @@ export function serviceMiddlewareAuthenticator(){
         let serviceSignature = req.headers['service-signature'] as string;
     
         if(serviceName && serviceSignature){
-            req.redis.get(`${serviceName}.metadata`,(err, str)=>{
+            req.redis.get(`${serviceName}.metadata`).then((str: any)=>{
                 if(str){
                     let meta: ServiceMetadata = JSON.parse(str);
                     if(meta.signature === serviceSignature){

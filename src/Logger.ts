@@ -1,4 +1,4 @@
-import { RedisClient } from "redis";
+import { RedisClientType } from "redis";
 
 type LogLevel = "alert" | "critical" | "debug" | "emergency" | "error" | "info" | "notice" | "warn";
 
@@ -10,11 +10,11 @@ interface Log{
 }
 
 export class Logger{
-    public client: RedisClient;
+    public client: RedisClientType;
     public channel: string;
     public service: string;
 
-    constructor(client: RedisClient, channel: string, service: string){
+    constructor(client: RedisClientType, channel: string, service: string){
         this.client = client;
         this.channel = channel;
         this.service = service;

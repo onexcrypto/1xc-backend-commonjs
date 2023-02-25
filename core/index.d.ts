@@ -88,6 +88,11 @@ export interface Customer extends User {
      */
     logo?: Media;
     parentId?: string;
+    documents?: {
+        ifu: Media;
+        id: Media;
+        rccm: Media;
+    };
 }
 export type WalletType = "business" | "standard";
 export interface Wallet extends Indexable, Insertable, Patchable {
