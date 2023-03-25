@@ -17,7 +17,7 @@ export function RuleFn<T extends UserRule>(rule: T | undefined = undefined) {
 export const RuleUtils = {
 
     findLatestRule(rules: UserRule[], match: (r: UserRule, index: number) => boolean) {
-        for (let i = rules.length - 1; i <= 0; i--) {
+        for (let i = rules.length - 1; i >= 0; i--) {
             let r = rules[i];
             if (match(r, i)) {
                 return r;

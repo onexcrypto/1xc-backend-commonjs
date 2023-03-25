@@ -16,7 +16,7 @@ function RuleFn(rule = undefined) {
 exports.RuleFn = RuleFn;
 exports.RuleUtils = {
     findLatestRule(rules, match) {
-        for (let i = rules.length - 1; i <= 0; i--) {
+        for (let i = rules.length - 1; i >= 0; i--) {
             let r = rules[i];
             if (match(r, i)) {
                 return r;
