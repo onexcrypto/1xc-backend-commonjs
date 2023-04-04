@@ -415,11 +415,14 @@ export interface GeneratedCard {
     email: string;
     notice: string;
 }
+//status de traitement pour les commandes de cartes
+type OrderStatus = "pending" | "accepted" | "rejected" | "processing" | "delivered" | "delivered"| "cancelled";
 
 export interface ICardGenerationRequest extends Indexable, Insertable {
     userId: string;
     paymentId: string;
-    cards: GeneratedCard[]
+    cards: GeneratedCard[];
+    status: OrderStatus;
 }
 
 export interface IAccessControl {
