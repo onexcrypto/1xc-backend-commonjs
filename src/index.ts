@@ -422,7 +422,7 @@ export interface ICardGenerationRequest extends Indexable, Insertable {
     userId: string;
     paymentId: string;
     cards: GeneratedCard[];
-    status: OrderStatus;
+    status?: OrderStatus;
 }
 
 export interface IAccessControl {
