@@ -361,10 +361,12 @@ export interface GeneratedCard {
     email: string;
     notice: string;
 }
+type OrderStatus = "pending" | "accepted" | "rejected" | "processing" | "delivered" | "delivered" | "cancelled";
 export interface ICardGenerationRequest extends Indexable, Insertable {
     userId: string;
     paymentId: string;
     cards: GeneratedCard[];
+    status?: OrderStatus;
 }
 export interface IAccessControl {
     path: string;
